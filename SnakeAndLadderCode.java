@@ -14,38 +14,45 @@ public class SnakeAndLadderCode {
 		int MaxDie=6;
 		Random rand = new Random();
 		
-		int die = (int) Math.floor(Math.random()*(MaxDie-MinDie+1)+MinDie);
-		
 		System.out.println("Welcome to Snake & Ladder");
 		System.out.println(" No. of players: " + Player_No);
 		System.out.println(" Initial Position: " + position);
-		System.out.println(" The value of the die: " + die);
 		
-		//Select random option from 1-3
-				int option = rand.nextInt(3) + 1;
-				
-				switch(option) {
-				case No_Play: {
-					System.out.println("NO PLAY"); 
-					break; }
-				case Snake: {
-					position=position-die;
-					if(position<0) {
-						position = 0;
-					}
-					System.out.println("SNAKE - Move back by "+die+" steps.");
-					System.out.println("Final position :" +position);
-					break; }
-				case Ladder: {
-						position=position+die;
+		while(position!=100) {
+			int die = (int) Math.floor(Math.random()*(MaxDie-MinDie+1)+MinDie);
+			System.out.println(" The value of the die: " + die);
+			
+			//Select random option from 1-3
+					int option = rand.nextInt(3) + 1;
+					
+					switch(option) {
+					case No_Play: {
+						System.out.println("NO PLAY"); 
+						break; }
+					case Snake: {
+						position=position-die;
 						if(position<0) {
 							position = 0;
 						}
-						System.out.println("LADDER! Move ahead by "+die+" steps.");
-						System.out.println("Final position :" +position );
-						break;
-				}
-				}// end of switch
+						System.out.println("SNAKE - Move back by "+die+" steps.");
+						System.out.println("Final position :" +position);
+						break; }
+					case Ladder: {
+							position=position+die;
+							if(position<0) {
+								position = 0;
+							}
+							System.out.println("LADDER! Move ahead by "+die+" steps.");
+							System.out.println("Final position :" +position );
+							break;
+					}
+					}// end of switch
+				if(position>100) {
+					position -= die;
+					System.out.println("The Dice number is greater than 100. Go back to previous position. Final position :" +position);
+				}//end of if
+			
+		}
 		
 	}
 }
