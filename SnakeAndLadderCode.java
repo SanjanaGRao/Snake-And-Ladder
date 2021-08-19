@@ -51,6 +51,11 @@ public class SnakeAndLadderCode {
 					position -= die;
 					System.out.println("The Dice number is greater than 100. Go back to previous position. Final position :" +position);
 				}//end of if
+				//if its exactly 100
+				if(position==100) {
+					System.out.println("Congratulations. You Win!");
+					break;
+				}
 			
 		}
 		
