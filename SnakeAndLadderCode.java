@@ -12,6 +12,7 @@ public class SnakeAndLadderCode {
 		int position = 0;
 		int MinDie=1; // to implement random function
 		int MaxDie=6;
+		int Count =0;
 		Random rand = new Random();
 		
 		System.out.println("Welcome to Snake & Ladder");
@@ -21,6 +22,7 @@ public class SnakeAndLadderCode {
 		while(position!=100) {
 			int die = (int) Math.floor(Math.random()*(MaxDie-MinDie+1)+MinDie);
 			System.out.println(" The value of the die: " + die);
+			Count ++;
 			
 			//Select random option from 1-3
 					int option = rand.nextInt(3) + 1;
@@ -56,8 +58,8 @@ public class SnakeAndLadderCode {
 					System.out.println("Congratulations. You Win!");
 					break;
 				}
-			
-		}
-		
+				
+			}// while
+		System.out.println("The dice was rolled "+Count+" times.");
 	}
 }
